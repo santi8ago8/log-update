@@ -7,7 +7,7 @@ const main = stream => {
 	let prevLineCount = 0;
 
 	const render = function () {
-		cliCursor.hide();
+		//cliCursor.hide();
 		let out = [].join.call(arguments, ' ') + '\n';
 		out = wrapAnsi(out, process.stdout.columns || 80, {wordWrap: false, trim: false, hard: true});
 		stream.write(ansiEscapes.eraseLines(prevLineCount) + out);
@@ -21,7 +21,7 @@ const main = stream => {
 
 	render.done = () => {
 		prevLineCount = 0;
-		cliCursor.show();
+		//cliCursor.show();
 	};
 
 	return render;
